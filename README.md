@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Automated Parcel System Test Robot
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This React component, `Robot`, is designed to simulate interactions with an automated parcel system. The system is assumed to have the following features:
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Users:** A list of users retrieved from the backend.
+- **Random Users:** Two randomly selected users from the user list, designated as the sender and receiver.
+- **Random Letters:** Two randomly selected letters from the alphabet (A, B, C, D, E).
+- **Empty Cabinets:** Empty cabinets associated with the randomly selected letters.
+- **Manual Parcel Sending:** Manually sending a parcel by specifying sender and receiver details and selecting empty cabinets.
+- **Automated Testing:** Automated testing mode to continuously send parcels at regular intervals.
 
-### `npm start`
+## Code Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### State Variables
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- `users`: Array of users retrieved from the backend.
+- `randomUsers`: Array containing two randomly selected users.
+- `currentSender`: Details of the current sender user.
+- `currentReceiver`: Details of the current receiver user.
+- `randomLetters`: Two randomly selected letters.
+- `emptyCabinets0`: Empty cabinets associated with the first random letter.
+- `emptyCabinets1`: Empty cabinets associated with the second random letter.
+- `isPageLoaded`: Boolean indicating whether the page has loaded.
+- `isAutoTesting`: Boolean indicating whether automated testing is active.
+- `isSendParcelDisabled`: Boolean indicating whether the manual send parcel button is disabled.
 
-### `npm test`
+### Functions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `generateRandomLetters`: Generates two random letters from the alphabet.
+- `fetchData`: Fetches user data from the backend.
+- `getRandomUsers`: Selects two random users from the user list.
+- `findEmptyCabinets`: Finds empty cabinets associated with the random letters.
+- `sendParcel`: Sends a parcel using the selected sender, receiver, and empty cabinets.
+- `autoTest`: Function to be called in automated testing mode, sending parcels at intervals.
+- `handleSendParcelClick`: Event handler for manually sending a parcel.
+- `handleAutoTestClick`: Event handler for toggling automated testing mode.
 
-### `npm run build`
+### useEffect Hooks
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- The first `useEffect` hook initializes the component by generating random letters, fetching user data, selecting random users, and finding empty cabinets.
+- The second `useEffect` hook runs automated testing at regular intervals when `isAutoTesting` is true.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How to Use
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Start by rendering the `Robot` component within your React application.
+2. Two randomly selected user accounts will be displayed.
+3. Click the "Manually add package information" button to send a parcel manually.
+4. Click the "Start automated testing" button to initiate automated testing mode.
+5. Use the "Stop automated testing" button to halt automated testing.
