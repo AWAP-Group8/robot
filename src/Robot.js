@@ -118,7 +118,7 @@ const Robot = () => {
     };
 
     if (isAutoTesting) {
-      autoTestTimer = setInterval(autoTest, 0.5 * 60 * 1000);
+      autoTestTimer = setInterval(autoTest, 10 * 1000);
     }
 
     return () => {
@@ -157,7 +157,7 @@ const Robot = () => {
       <button onClick={handleSendParcelClick} disabled={isSendParcelDisabled}>
         Manually add package information
       </button>
-      <button onClick={handleAutoTestClick}>{isAutoTesting ? 'Stop automated testing' : 'Start automated testing'}</button>
+      <button onClick={handleAutoTestClick}>{isAutoTesting ? 'Stop automated testing' : 'Start automated testing/10s'}</button>
     </div>
   );
 };
